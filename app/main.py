@@ -24,4 +24,30 @@ def main():
     print(result["feedback"])
 
 if __name__ == "__main__":
-    main()
+    
+    from app.feedback import generate_supportive_feedback
+
+    transcript = """I recently worked on a project where I built a simple movie recommendation system.
+    I used Python and a cosine similarity approach to recommend movies based on user preferences.
+    I enjoyed experimenting with different similarity measures and tuning the system to get better results.
+    The project helped me understand how recommendation engines work in real life."""
+
+    evaluation = {
+        "total_words": 54,
+        "filler_ratio": 0.02,
+        "clarity_ratio": 0.48,
+        "sentiment": {
+            "compound": 0.72,
+            "label": "Positive"
+        },
+        "scores": {
+            "filler": 30,
+            "clarity": 20,
+            "sentiment": 30,
+            "final": 72
+        },
+        "feedback": "Clear explanation. Could include more specific details."
+    }
+
+    print(generate_supportive_feedback(transcript, evaluation))
+
