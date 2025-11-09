@@ -1,7 +1,7 @@
 from openai import OpenAI
 client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key="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",
+        api_key="",
     )
 
 def generate_supportive_feedback(transcript: str, evaluation: dict):
